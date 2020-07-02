@@ -22,7 +22,7 @@ jobs:
       - run:
           command: cat /Tests/test_getjsondata.py
 
-      -run:
+      - run:
         command: cat ~/repo/Tests/test_getjsondata.py
 
       # Install dependencies
