@@ -8,11 +8,15 @@ jobs:
     docker:
       - image: circleci/python:3.7
 
-    working_directory: ~/repo/Tests
+    working_directory: ~/repo
 
     steps:
       # Get the repo from GitHub
       - checkout
+
+      # Find out where I am
+      - run:
+          command: ls
 
       # Install dependencies
       - run:
