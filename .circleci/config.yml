@@ -28,4 +28,4 @@ jobs:
       - run:
           name: run tests
           command: |
-            pytest test_getjsondata.py
+            pytest /Tests/test_getjsondata.py
