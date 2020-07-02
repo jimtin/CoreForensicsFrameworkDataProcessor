@@ -31,4 +31,4 @@ jobs:
       - run:
           name: run tests
           command: |
-            pytest /Tests/test_getjsondata.py
+            pytest ~/repo/Tests/test_getjsondata.py
