@@ -18,10 +18,6 @@ jobs:
       - run:
           command: ls
 
-      # See if I can cat test_getjsondata.py
-      - run:
-          command: cat /Tests/test_getjsondata.py
-
       - run:
           command: cat ~/repo/Tests/test_getjsondata.py
 
