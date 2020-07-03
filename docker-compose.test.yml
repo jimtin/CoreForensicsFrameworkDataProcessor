@@ -1,0 +1,4 @@
+# Compose the tests
+sut:
+  build: .
+  command: python -m pytest
