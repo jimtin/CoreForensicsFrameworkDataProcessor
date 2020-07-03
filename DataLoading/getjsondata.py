@@ -1,12 +1,16 @@
 import json
 import pandas as pd
+from pathlib import Path
 
 # This library controls all querying of provided JSON objects, then conversion into pandas dataframes
 
 # Function to get the jsonobjects
 def getJSONObjects(ParentLocation, ObjectFileName):
-    # Update the parent location with processstarts.json
-    Location = ParentLocation + "\\" + ObjectFileName
+    # Turn the file path in a path object
+    ParentLocation = Path(ParentLocation)
+
+    # Add the ObjectFileName to the path
+    Location = ParentLocation / ObjectFileName
 
     # Open the file
     with open(Location) as processfile:
