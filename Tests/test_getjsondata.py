@@ -5,12 +5,19 @@ Unit tests for loading data into memory space
 from DataLoading import getjsondata
 import os
 import pandas as pd
+from pathlib import Path
 
 class TestDataLoading:
 
     # Set up some variables for test
     ## Get the Current Working Directory as the 'ParentLocation' for tests
     ParentLocation = os.getcwd()
+
+    # Turn the ParentLocation into a Path
+    ParentLocation = Path(ParentLocation)
+
+    ## Update the Current Working Directory to take account of the Tests folder
+    ParentLocation = ParentLocation / "Tests"
 
     # Test ability to convert json into a dictionary
     def test_jsontodictconversion(self):
