@@ -41,7 +41,7 @@ class TestDataLoading:
         procstartobject = getjsondata.getProcessStartObjects(TestDataLoading.ParentLocation)
 
         # Assert positive outcome
-        assert procstartobject.head(1).CreatorAccountDomain.name == "FAKEWORKGROUP"
+        assert procstartobject.head(1).CreatorAccountDomain.values[0] == "FAKEWORKGROUP"
 
     # Test getProcessStartObjects does not return the wrong data
     def test_getProcessStartObjectsnotReturnIncorrectData(self):
@@ -49,7 +49,7 @@ class TestDataLoading:
         procstartobject = getjsondata.getProcessStartObjects(TestDataLoading.ParentLocation)
 
         # Assert negative outcome
-        assert procstartobject.head(1).CreatorAccountDomain.name != "FAKEWORKGROUPS"
+        assert procstartobject.head(1).CreatorAccountDomain.values[0] != "FAKEWORKGROUPS"
 
     # Test getProcessStopObjects returns the correct data
     def test_getProcessStopObjectsReturnCorrectData(self):
@@ -57,7 +57,7 @@ class TestDataLoading:
         procstopobject = getjsondata.getProcessStopObjects(TestDataLoading.ParentLocation)
 
         # Assert positive outcome
-        assert procstopobject.head(1).AccountDomain.name == "FAKEWORKGROUP"
+        assert procstopobject.head(1).AccountDomain.values[0] == "FAKEWORKGROUP"
 
     # Test getProcessStopObjects does not return incorrect data
     def test_getProcessStopObjectsnotReturnIncorrectData(self):
@@ -65,4 +65,4 @@ class TestDataLoading:
         procstopobject = getjsondata.getProcessStopObjects(TestDataLoading.ParentLocation)
 
         # Assert negative outcome
-        assert procstopobject.head(1).AccountDomain.name != "FAKEWORKGROUPS"
+        assert procstopobject.head(1).AccountDomain.values[0] != "FAKEWORKGROUPS"
