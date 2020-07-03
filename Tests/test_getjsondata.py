@@ -36,8 +36,17 @@ class TestDataLoading:
         assert type(dataframe) == pd.DataFrame
 
     # Test getProcessStartObjects returns the correct data
-    #def test_getProcessStartObjectsReturnData(self):
+    def test_getProcessStartObjectsReturnData(self):
         # Load the test data
-    #    procstartobject = getjsondata.getProcessStartObjects(TestDataLoading.ParentLocation)
+        procstartobject = getjsondata.getProcessStartObjects(TestDataLoading.ParentLocation)
 
+        # Assert positive outcome
+        assert procstartobject.head(1).CreatorAccountDomain.name == "FAKEWORKGROUP"
 
+    # Test getProcessStartObjects does not return the wrong data
+    def test_getProcessStartObjectsReturnData(self):
+        # Load the test data
+        procstartobject = getjsondata.getProcessStartObjects(TestDataLoading.ParentLocation)
+
+        # Assert positive outcome
+        assert procstartobject.head(1).CreatorAccountDomain.name != "FAKEWORKGROUPS"
