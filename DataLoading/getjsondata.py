@@ -38,7 +38,7 @@ def getProcessObjects(ParentLocation, ProcessFileName, DataObjectName):
     df['DateTime'] = pd.to_datetime(df['DateTime'])
 
     # Set the index to be based on time
-    df.set_index('DateTime', inplace=True, drop=True)
+    df.set_index('DateTime', inplace=True, drop=False)
 
     # Return the ProcessStart Object
     return df

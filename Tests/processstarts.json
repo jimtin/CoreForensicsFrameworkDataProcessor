@@ -21,6 +21,28 @@
       "Type": "ProcessStart",
       "SecurityID": "S-1-5-18",
       "CreatorSecurityID": "S-1-16-1000000"
+    },
+    {
+      "ParentProcessId": 1000,
+      "DateTime": "2020-06-22T18:30:38.9115438+10:00",
+      "TargetLogonId": 0,
+      "TargetAccountName": "-",
+      "ProcessId": 2192000,
+      "TokenElevationType": "%%1936",
+      "ParentProcessPath": "C:\\Program Files\\Splunk\\bin\\splunkd.exe",
+      "EventLogRecordId": 1000000,
+      "TargetAccountDomain": "-",
+      "CreatorAccountName": "GENERICCOMPUTER$",
+      "ProcessCommandLine": "",
+      "CreatorLogonID": null,
+      "Source": "ExtractedEventLogs",
+      "TargetSecurityId": "S-1-0-0",
+      "CreatorAccountDomain": "FAKEWORKGROUP",
+      "ProcessStartPath": "C:\\Program Files\\Splunk\\bin\\splunk-optimize.exe",
+      "Target": "192.168.1.1",
+      "Type": "ProcessStart",
+      "SecurityID": "S-1-5-18",
+      "CreatorSecurityID": "S-1-16-1000000"
     }
   ]
 }

@@ -13,6 +13,34 @@
       "SecurityID": "S-1-5-18",
       "AccountName": "FAKEWORKGROUP",
       "DateTime": "2020-06-22T18:30:38.925157+10:00"
+    },
+    {
+      "Target": "192.168.1.1",
+      "Source": "ExtractedEventLogs",
+      "ProcessStartPath": "C:\\Program Files\\Splunk\\bin\\splunk-optimize.exe",
+      "ProcessExitStatus": 0,
+      "ProcessId": 21920,
+      "Type": "ProcessStop",
+      "EventLogRecordId": 1000000,
+      "AccountDomain": "FAKEWORKGROUP",
+      "LogonID": null,
+      "SecurityID": "S-1-5-18",
+      "AccountName": "FAKEWORKGROUP",
+      "DateTime": "2020-06-22T18:30:38.926157+10:00"
+    },
+    {
+      "Target": "192.168.1.1",
+      "Source": "ExtractedEventLogs",
+      "ProcessStartPath": "C:\\Program Files\\Splunk\\bin\\splunk-optimize.exe",
+      "ProcessExitStatus": 0,
+      "ProcessId": 21920,
+      "Type": "ProcessStop",
+      "EventLogRecordId": 1000000,
+      "AccountDomain": "FAKEWORKGROUP",
+      "LogonID": null,
+      "SecurityID": "S-1-5-18",
+      "AccountName": "FAKEWORKGROUP",
+      "DateTime": "2020-06-22T18:30:38.826157+10:00"
     }
   ]
 }

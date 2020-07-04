@@ -2,10 +2,14 @@
 Unit tests for loading data into memory space
 """
 
-from DataLoading import getjsondata
+# Python Dictionaries
 import os
 import pandas as pd
 from pathlib import Path
+
+# My functions to test
+from DataLoading import getjsondata
+from InitialDataProcessing import createprocessobjects
 
 class TestDataLoading:
 
@@ -66,3 +70,42 @@ class TestDataLoading:
 
         # Assert negative outcome
         assert procstopobject.head(1).AccountDomain.values[0] != "FAKEWORKGROUPS"
+
+    # Test combineProcessStartProcessStop function can combine ProcessStart and ProcessStop objects
+    def test_combineProcessStartProcessStop(self):
+        # Load the test data
+        processobject = createprocessobjects.combineProcessStartProcessStop(TestDataLoading.ParentLocation)
+
+        # Assert that the result is a process object
+        assert processobject.head(1).HostHunterObject == "ProcessStartProcessStopObject"
+
+    # Test combineProcessStartProcessStop function selects the stop object directly after process start
+    def test_combineProcessStartProcessStopfirstStop(self):
+        # Load the test data
+        processobject = createprocessobjects.combineProcessStartProcessStop(TestDataLoading.ParentLocation)
+
+        # Assert that the stop time is "2020-06-22T18:30:38.925157+10:00"
+        assert processobject.head(1).ProcessStopTime == "2020-06-22T18:30:38.925157+10:00"
+
+    # Test combineProcessStartProcessStop function creates no more than the count of the ProcessStart events
+    def test_combineProcessStartProcessStopcount(self):
+        # Load the test data
+        processobject = createprocessobjects.combineProcessStartProcessStop(TestDataLoading.ParentLocation)
+
+        # Get a count of the number of ProcessStart objects
+        procstart = getjsondata.getProcessStartObjects(TestDataLoading.ParentLocation)
+
+        # Assert dataframe count is no more than number of process start objects
+        assert processobject.shape[0] <= procstart.shape[0]
+
+    # Test combineProcessStartProcessStop function returns a 'No Process Stop Found' when given a process which hasn't exited
+    def test_combineProcessStartProcessStopnotexited(self):
+        # Load the test data
+        processobject = createprocessobjects.combineProcessStartProcessStop(TestDataLoading.ParentLocation)
+
+        # Get the ProcessObject with no related stop object
+        ProcessIdNoStop = [2192000]
+        testobject = processobject[processobject.ProcessId.isin(ProcessIdNoStop)]
+
+        # Assert that the value of ProcessStopsLogs is false
+        assert testobject.ProcessStopLogs == False
