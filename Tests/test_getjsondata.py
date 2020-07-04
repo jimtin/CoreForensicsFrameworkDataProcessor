@@ -77,7 +77,7 @@ class TestDataLoading:
         processobject = createprocessobjects.combineProcessStartProcessStop(TestDataLoading.ParentLocation)
 
         # Assert that the result is a process object
-        assert processobject.head(1).HostHunterObject == "ProcessStartProcessStopObject"
+        assert processobject.head(1).HostHunterObject.values[0] == "ProcessStartProcessStopObject"
 
     # Test combineProcessStartProcessStop function selects the stop object directly after process start
     def test_combineProcessStartProcessStopfirstStop(self):
@@ -85,7 +85,7 @@ class TestDataLoading:
         processobject = createprocessobjects.combineProcessStartProcessStop(TestDataLoading.ParentLocation)
 
         # Assert that the stop time is "2020-06-22T18:30:38.925157+10:00"
-        assert processobject.head(1).ProcessStopTime == "2020-06-22T18:30:38.925157+10:00"
+        assert str(processobject.head(1).ProcessStopTime.values[0]) == "2020-06-22T18:30:38.925157+10:00"
 
     # Test combineProcessStartProcessStop function creates no more than the count of the ProcessStart events
     def test_combineProcessStartProcessStopcount(self):
@@ -108,4 +108,4 @@ class TestDataLoading:
         testobject = processobject[processobject.ProcessId.isin(ProcessIdNoStop)]
 
         # Assert that the value of ProcessStopsLogs is false
-        assert testobject.ProcessStopLogs == False
+        assert testobject.ProcessStopLogs.values[0] == False
